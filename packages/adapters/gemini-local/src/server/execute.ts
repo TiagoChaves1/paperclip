@@ -262,7 +262,7 @@ export async function execute(ctx: AdapterExecutionContext): Promise<AdapterExec
     executionTargetIsRemote,
     executionCwd: effectiveExecutionCwd,
   });
-  if (typeof env.GEMINI_CLI_TRUST_WORKSPACE !== "string") {
+  if (typeof env.GEMINI_CLI_TRUST_WORKSPACE !== "string" && executionTargetIsRemote) {
     env.GEMINI_CLI_TRUST_WORKSPACE = "true";
   }
   if (!hasExplicitApiKey && authToken) {
