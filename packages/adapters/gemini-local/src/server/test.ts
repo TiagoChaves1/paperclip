@@ -94,7 +94,7 @@ export async function testEnvironment(
   for (const [key, value] of Object.entries(envConfig)) {
     if (typeof value === "string") env[key] = value;
   }
-  if (targetIsRemote && typeof env.GEMINI_CLI_TRUST_WORKSPACE !== "string") {
+  if (typeof env.GEMINI_CLI_TRUST_WORKSPACE !== "string") {
     env.GEMINI_CLI_TRUST_WORKSPACE = "true";
   }
   const runtimeEnv = ensurePathInEnv({ ...process.env, ...env });
